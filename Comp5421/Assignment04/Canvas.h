@@ -41,8 +41,7 @@ public:
     Canvas &operator=(Canvas &&) = default;
 
 protected:
-    int height;
-    int width;
+
     vector<vector<char> > grid{};           // the only data member
     bool check(int r, int c) const;          // validates row r and column c, 0-based
     void resize(size_t rows, size_t cols);  // resizes this Canvas’s dimensions
@@ -53,8 +52,8 @@ public:
 
     int getRows() const;             // returns height of this Canvas object
     int getColumns() const;          // returns width of this Canvas object
-    Canvas flip_horizontal() ;  // flips this canvas horizontally
-    Canvas flip_vertical() ;    // flips this canvas vertically
+    Canvas flip_horizontal() const;  // flips this canvas horizontally
+    Canvas flip_vertical() const ;    // flips this canvas vertically
     void print(ostream &) const;     // prints this Canvas to ostream
     char get(int r, int c) const;   // returns char at row r and column c, 0-based;
     // throws std::out_of_range{ "Canvas index out of range" }
