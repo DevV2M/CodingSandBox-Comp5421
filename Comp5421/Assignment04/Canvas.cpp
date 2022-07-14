@@ -12,7 +12,7 @@ bool Canvas::check(int r, int c) const {
 // resizes this Canvas’s dimensions
 void Canvas::resize(size_t rows, size_t cols) {
     grid.resize(rows);
-    for (auto vec: grid) {
+    for (auto &vec: grid) {
         vec.resize(cols, ' ');
     }
 }
@@ -62,7 +62,7 @@ void Canvas::reverseH(vector<char>::iterator first, vector<char>::iterator last)
 // flips this canvas horizontally
 Canvas Canvas::flip_horizontal() const {
     Canvas newCan{*this};
-    for (auto &vec: newCan.grid){
+    for (auto &vec: newCan.grid) {
         vector<char>::iterator first = vec.begin();
         vector<char>::iterator last = vec.end();
         while ((first != last) && (first != --last)) {
@@ -135,17 +135,20 @@ void Canvas::overlap(const Canvas &can, size_t r, size_t c) {
 
     resize(getRows() + can.getRows(), getColumns() + can.getColumns());
 
-    int n = 0;
-    int m = 0;
+    int n = 0;  // starting row
+    int m = 0;  // starting col
 
     for (int i = r; i < getRows(); i++) {   // this row
-        for (int j = c; j < getColumns(); j++) {    // this col
-            if (m < can.getColumns() && can.get(n, m) != ' ') {
-                put(i, j, can.get(n, m));
+        if (n < can.getRows()) {
+            for (int j = c; j < getColumns(); j++) {    // this col
+                if (m < can.getColumns() && can.get(n, m) != ' ') {
+                    put(i, j, can.get(n, m));
+                }
                 m++;
             }
         }
         n++;
+        m=0;
     }
 }
 
