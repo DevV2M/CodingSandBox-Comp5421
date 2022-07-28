@@ -4,7 +4,7 @@
 
 #include "Triangle.h"
 
-Triangle::Triangle(int b, char p, string n) : Shape{p, n}, base{b} {}
+Triangle::Triangle(size_t h, size_t w, char p, string n) : Shape{p, n, h, w} {}
 
 // Member-function
 // Computes and returns the shape’s geometric area

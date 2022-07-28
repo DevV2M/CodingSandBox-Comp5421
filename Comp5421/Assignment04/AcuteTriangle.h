@@ -12,29 +12,24 @@ class AcuteTriangle: public Triangle{
 public:
 
     // Constructors
-    AcuteTriangle(int b, char p = '*', string n = "Wedge");
+    AcuteTriangle(size_t b, char p = '*', string n = "Wedge");
 
-    // Accessor Member-function
-    // returning a non- negative integer, measuring the height of the shape’s bounding box
-    int getHeight() const override;
-
-    // Accessor Member-function
-    // returning a non-negative integer, measuring the width of the shape’s bounding box
-    int getWidth() const override;
+    // DTOR
+    virtual ~AcuteTriangle() = default;
 
     // Member-function
     // Computes and returns the shape’s geometric perimeter
-    double perimeterGeo() const override;
+    virtual double perimeterGeo() const override;
 
     // Member-function
     // Computes and returns the shape’s screen area, the number of characters forming the textual image of the shape
-    int areaScr() const override;
+    virtual int areaScr() const override;
 
     // Member-function
     // Computes and returns the shape’s screen perimeter, the number of characters on the borders of the textual image of the shape
-    int perimeterScr() const override;
+    virtual int perimeterScr() const override;
 
-    Canvas draw() const override;
+    virtual Canvas draw() const override;
 };
 
 

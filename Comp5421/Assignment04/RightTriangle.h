@@ -12,29 +12,25 @@ class RightTriangle: public Triangle{
 public:
 
     // Constructors
-    RightTriangle(int b, char p = '*', string n = "Ladder");
+    RightTriangle(size_t b, char p = '*', string n = "Ladder");
 
-    // Accessor Member-function
-    // returning a non- negative integer, measuring the height of the shape’s bounding box
-    int getHeight() const override;
+    // DTOR
+    virtual ~RightTriangle() = default;
 
-    // Accessor Member-function
-    // returning a non-negative integer, measuring the width of the shape’s bounding box
-    int getWidth() const override;
 
     // Member-function
     // Computes and returns the shape’s geometric perimeter
-    double perimeterGeo() const override;
+    virtual double perimeterGeo() const override;
 
     // Member-function
     // Computes and returns the shape’s screen area, the number of characters forming the textual image of the shape
-    int areaScr() const override;
+    virtual int areaScr() const override;
 
     // Member-function
     // Computes and returns the shape’s screen perimeter, the number of characters on the borders of the textual image of the shape
-    int perimeterScr() const override;
+    virtual int perimeterScr() const override;
 
-    Canvas draw() const override;
+    virtual Canvas draw() const override;
 };
 
 

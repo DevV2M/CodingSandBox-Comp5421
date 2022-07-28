@@ -11,7 +11,11 @@ class Triangle: public Shape {
 protected:
     int base;
 public:
-    Triangle(int b, char p = '*', string n = "Triangle");
+    // CTOR
+    Triangle(size_t h, size_t w, char p = '*', string n = "Triangle");
+
+    // DTOR
+    virtual ~Triangle() = default;
 
     // Member-function
     // Computes and returns the shape’s geometric area

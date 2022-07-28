@@ -48,10 +48,10 @@ protected:
 
 public:
     // creates this canvas’s (rows x columns) grid filled with blank characters
-    Canvas(int rows, int columns, char fillChar = ' ');
+    Canvas(size_t rows, size_t columns, char fillChar = ' ');
 
-    int getRows() const;             // returns height of this Canvas object
-    int getColumns() const;          // returns width of this Canvas object
+    size_t getRows() const;             // returns height of this Canvas object
+    size_t getColumns() const;          // returns width of this Canvas object
     Canvas flip_horizontal() const;  // flips this canvas horizontally
     Canvas flip_vertical() const ;    // flips this canvas vertically
     void print(ostream &) const;     // prints this Canvas to ostream

@@ -4,15 +4,7 @@
 
 #include "Rectangle.h"
 
-Rectangle::Rectangle(int h, int w, char p, string n): Shape(p,n), height{h}, width{w} {}
-
-// Accessor Member-function
-// returning a non- negative integer, measuring the height of the shape’s bounding box
-int Rectangle::getHeight() const { return height; }
-
-// Accessor Member-function
-// returning a non-negative integer, measuring the width of the shape’s bounding box
-int Rectangle::getWidth() const { return width; }
+Rectangle::Rectangle(int h, int w, char p, string n): Shape(p,n,h,w){}
 
 // Member-function
 // Computes and returns the shape’s geometric area
@@ -31,9 +23,9 @@ int Rectangle::areaScr() const { return areaGeo(); }
 int Rectangle::perimeterScr() const { return perimeterGeo()-4;}
 
 Canvas Rectangle::draw() const {
-    Canvas can{getHeight(),getWidth(),' '};
-    for(int i = 0; i < height; i++){
-        for(int k = 0; k < width; k++){
+    Canvas can{height,width,' '};
+    for(size_t i = 0; i < height; i++){
+        for(size_t k = 0; k < width; k++){
             can.put(i ,k ,pen);
         }
     }

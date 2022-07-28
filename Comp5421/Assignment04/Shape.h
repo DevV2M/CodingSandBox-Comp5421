@@ -29,11 +29,16 @@ protected:
     int identity;
     char pen;
     string name;
+    size_t height;
+    size_t width;
 
 public:
 
     // CTOR
-    Shape(char pen, string name);
+    Shape(char pen, string name, size_t h, size_t w);
+
+    // DTOR
+    virtual ~Shape() = default;
 
     // Common operations
     // Three (getter) member-functions, one for each attribute
@@ -57,11 +62,11 @@ public:
 
     // Accessor Member-function
     // returning a non- negative integer, measuring the height of the shape’s bounding box
-    virtual int getHeight() const = 0;
+    size_t getHeight() const;
 
     // Accessor Member-function
     // returning a non-negative integer, measuring the width of the shape’s bounding box
-    virtual int getWidth() const = 0;
+    size_t getWidth() const;
 
     // Member-function
     // Computes and returns the shape’s geometric area

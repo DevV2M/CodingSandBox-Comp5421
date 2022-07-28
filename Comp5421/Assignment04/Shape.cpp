@@ -7,7 +7,7 @@
 int Shape::shape_count = 0;
 
 // Common operations
-Shape::Shape(char pen, string name): pen{pen}, name{name} {
+Shape::Shape(char pen, string name, size_t h, size_t w) : pen{pen}, name{name}, height{h}, width{w} {
     identity = ++shape_count;
 }
 
@@ -17,13 +17,21 @@ char Shape::getPen() const { return pen; }
 
 string Shape::getName() const { return name; }
 
+// Accessor Member-function
+// returning a non-negative integer, measuring the height of the shape’s bounding box
+size_t Shape::getHeight() const { return height; };
+
+// Accessor Member-function
+// returning a non-negative integer, measuring the width of the shape’s bounding box
+size_t Shape::getWidth() const { return width; };
+
 // Mutator (setter) member-function for setting pen data member
 void Shape::setPen(char pen) { this->pen = pen; }
 
 // Mutator (setter) member-function for setting name data member
 void Shape::setName(string name) { this->name = name; }
 
-string Shape::toString() const{
+string Shape::toString() const {
     ostringstream out;
     out << "Shape Information\n";
     out << "-----------------\n";
@@ -43,6 +51,6 @@ string Shape::toString() const{
 
 // Overloaded output operator <<,
 // Invokes the toString() function above polymorphically
-ostream& operator<<(ostream& cout, const Shape& shp){
-    return cout<<shp.toString();
+ostream &operator<<(ostream &cout, const Shape &shp) {
+    return cout << shp.toString();
 }

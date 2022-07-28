@@ -5,15 +5,7 @@
 #include "RightTriangle.h"
 
 // Constructors
-RightTriangle::RightTriangle(int base, char pen, string name) : Triangle{base, pen, name} {}
-
-// Accessor Member-function
-// returning a non- negative integer, measuring the height of the shape’s bounding box
-int RightTriangle::getHeight() const { return base; }
-
-// Accessor Member-function
-// returning a non-negative integer, measuring the width of the shape’s bounding box
-int RightTriangle::getWidth() const { return base; }
+RightTriangle::RightTriangle(size_t base, char pen, string name) : Triangle{base, base, pen, name} {}
 
 // Member-function
 // Computes and returns the shape’s geometric perimeter
@@ -29,8 +21,8 @@ int RightTriangle::perimeterScr() const { return 3 * (getHeight() - 1); }
 
 Canvas RightTriangle::draw() const {
     Canvas can{getHeight(),getWidth(),' '};
-    for (int i = 0; i < getHeight(); i++) {
-        for (int j = 0; j < getHeight(); j++) {
+    for (size_t i = 0; i < getHeight(); i++) {
+        for (size_t j = 0; j < getHeight(); j++) {
             if (j <= i) {
                 can.put(i ,j ,pen);
             }

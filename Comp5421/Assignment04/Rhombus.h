@@ -8,39 +8,32 @@
 #include "Shape.h"
 
 class Rhombus: public Shape{
-protected:
-    int d;
 
 public:
 
     // Constructors
-    Rhombus(int d, char p = '*', string n = "Rhombus");
+    Rhombus(size_t d, char p = '*', string n = "Rhombus");
 
-    // Accessor Member-function
-    // returning a non- negative integer, measuring the height of the shape’s bounding box
-    int getHeight() const override;
-
-    // Accessor Member-function
-    // returning a non-negative integer, measuring the width of the shape’s bounding box
-    int getWidth() const override;
+    // DTOR
+    virtual ~Rhombus() = default;
 
     // Member-function
     // Computes and returns the shape’s geometric area
-    double areaGeo() const override;
+    virtual double areaGeo() const override;
 
     // Member-function
     // Computes and returns the shape’s geometric perimeter
-    double perimeterGeo() const override;
+    virtual double perimeterGeo() const override;
 
     // Member-function
     // Computes and returns the shape’s screen area, the number of characters forming the textual image of the shape
-    int areaScr() const override;
+    virtual int areaScr() const override;
 
     // Member-function
     // Computes and returns the shape’s screen perimeter, the number of characters on the borders of the textual image of the shape
-    int perimeterScr() const override;
+    virtual int perimeterScr() const override;
 
-    Canvas draw() const override;
+    virtual Canvas draw() const override;
 };
 
 

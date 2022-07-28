@@ -13,26 +13,26 @@ bool Canvas::check(int r, int c) const {
 void Canvas::resize(size_t rows, size_t cols) {
     grid.resize(rows);
     for (auto &vec: grid) {
-        vec.resize(cols, ' ');
+        vec.resize(cols);
     }
 }
 
 // creates this canvas’s (rows x columns) grid filled with blank characters
-Canvas::Canvas(int rows, int columns, char fillChar) {
+Canvas::Canvas(size_t rows, size_t columns, char fillChar) {
 
-    for (int i = 0; i < rows; i++) {
+    for (size_t i = 0; i < rows; i++) {
         vector<char> r;
-        for (int j = 0; j < columns; j++) {
+        for (size_t j = 0; j < columns; j++) {
             r.push_back(fillChar);
         }
         grid.push_back(r);
     }
 }
 
-int Canvas::getRows() const { return grid.size(); }             // returns height of this Canvas object
+size_t Canvas::getRows() const { return grid.size(); }             // returns height of this Canvas object
 
 // returns width of this Canvas object
-int Canvas::getColumns() const {
+size_t Canvas::getColumns() const {
     size_t cols{};
     for (auto vec: grid) {
         cols = vec.size() > cols ? vec.size() : cols;
@@ -59,15 +59,27 @@ void Canvas::reverseH(vector<char>::iterator first, vector<char>::iterator last)
 }
 
 
-// flips this canvas horizontally
+//// flips this canvas horizontally
+//Canvas Canvas::flip_horizontal() const {
+//    Canvas newCan{*this};
+//    for (auto &vec: newCan.grid) {
+//        vector<char>::iterator first = vec.begin();
+//        vector<char>::iterator last = vec.end();
+//        while ((first != last) && (first != --last)) {
+//            std::iter_swap(first, last);
+//            ++first;
+//        }
+//    }
+//    return newCan;
+//}
 Canvas Canvas::flip_horizontal() const {
-    Canvas newCan{*this};
-    for (auto &vec: newCan.grid) {
-        vector<char>::iterator first = vec.begin();
-        vector<char>::iterator last = vec.end();
-        while ((first != last) && (first != --last)) {
-            std::iter_swap(first, last);
-            ++first;
+    Canvas newCan{getRows(), getColumns()};
+
+    for (int row = 0; row < getRows(); ++row) {
+        int last = getColumns() - 1; // fetch last column
+        for (int col = 0; col < getColumns(); ++col) {
+            newCan.put(row, last, grid[row][col]);
+            --last; // decrement last column element
         }
     }
     return newCan;
@@ -133,7 +145,10 @@ void Canvas::drawString(int r, int c, const std::string text) {
 // maps can’s origin to row r and column c on the invoking Canvas object
 void Canvas::overlap(const Canvas &can, size_t r, size_t c) {
 
-    resize(getRows() + can.getRows(), getColumns() + can.getColumns());
+    // checks if the total size of canvas after overlap exceeds current canvas size
+    if (can.getRows() + r > getRows() || can.getColumns() + c > getColumns()) {
+        resize(getRows() + can.getRows(), getColumns() + can.getColumns());
+    }
 
     int n = 0;  // starting row
     int m = 0;  // starting col
@@ -148,7 +163,7 @@ void Canvas::overlap(const Canvas &can, size_t r, size_t c) {
             }
         }
         n++;
-        m=0;
+        m = 0;
     }
 }
 

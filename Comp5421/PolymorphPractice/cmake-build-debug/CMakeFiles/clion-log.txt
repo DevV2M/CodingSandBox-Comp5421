@@ -1,0 +1,4 @@
+"/Users/vithu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/vithu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/vithu/Documents/GitHub/CodingSandBox/Comp5421/PolymorphPractice -B /Users/vithu/Documents/GitHub/CodingSandBox/Comp5421/PolymorphPractice/cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/vithu/Documents/GitHub/CodingSandBox/Comp5421/PolymorphPractice/cmake-build-debug
