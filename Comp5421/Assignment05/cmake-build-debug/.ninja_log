@@ -1,0 +1,7 @@
+# ninja log v5
+605	651	1659391409136894347	Assignment05	b4537c233c118cf5
+2	605	1659391409089671527	CMakeFiles/Assignment05.dir/assignment5.cpp.o	8b8f53acd1973179
+2	541	1659391409024713723	CMakeFiles/Assignment05.dir/assignment_5_test_driver.cpp.o	cbfaf28954db322d
+1	547	1659392559445888753	CMakeFiles/Assignment05.dir/assignment_5_test_driver.cpp.o	cbfaf28954db322d
+2	622	1659392559521833487	CMakeFiles/Assignment05.dir/assignment5.cpp.o	8b8f53acd1973179
+623	673	1659392559574101329	Assignment05	b4537c233c118cf5

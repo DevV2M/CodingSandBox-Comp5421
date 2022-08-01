@@ -8,6 +8,7 @@ using std::cin;
 // function prototypes
 void validate_words_vector(const WordsVector& word_vector);
 void print_words_vector(const WordsVector& word_vector);
+
 WordsVector task_1_Test_Drive(const std::string& infilename);
 void validate_word_map(const WordsMap& wmap);
 void print_word_map(const WordsMap& wmap);
@@ -18,7 +19,7 @@ void task_4_Test_Drive(const WordsVector& words_vector);
 void task_5_Test_Drive();
 void task_6_test_driver();
 void task_7_test_driver();
-void task_8_test_driver(int n);
+//void task_8_test_driver(int n);
 
 // Task 1
 void validate_words_vector(const WordsVector& word_vector)
@@ -94,11 +95,11 @@ void task_3_Test_Drive(const WordsVector& words_vector)
    WordsMap word_map_using_functor = map_and_count_words_using_functor(words_vector);
    validate_word_map(word_map_using_functor);
    cout << "word_map_using_functor is OK\n";
-   //cout << "All words in the map generated using functor\n";
-   //print_word_map(word_map_using_functor);
+   cout << "All words in the map generated using functor\n";
+   print_word_map(word_map_using_functor);
 }
 
-// Task 4
+//// Task 4
 void validate_unique_words_vector(const WordsVector& word_vector)
 {
    assert(word_vector.size() == 100);
@@ -129,7 +130,7 @@ void task_5_Test_Drive()
    cout << "the phrase \"" + str_u_saw + "\" is not a palindrome\n";
 }
 
-// Task 6
+//// Task 6
 void task_6_test_driver()
 {
    std::vector<std::string> vecstr
@@ -158,19 +159,19 @@ void task_7_test_driver()
    cout << endl;
 }
 
-// Task 8
-void task_8_test_driver(int n)
-{
-   cout << "Fibonacci Sequence" << endl;
-   std::vector<int> fibs = getnerate_Fibonacci(n);
-   std::copy(fibs.begin(), fibs.end(), std::ostream_iterator<int>(cout, " "));
-   assert(fibs[9] == 34);
-   assert(fibs[14] == 377);
-}
+//// Task 8
+//void task_8_test_driver(int n)
+//{
+//   cout << "Fibonacci Sequence" << endl;
+//   std::vector<int> fibs = getnerate_Fibonacci(n);
+//   std::copy(fibs.begin(), fibs.end(), std::ostream_iterator<int>(cout, " "));
+//   assert(fibs[9] == 34);
+//   assert(fibs[14] == 377);
+//}
 
 int main()
 {
-   std::string infilename{ R"(C:\Users\msi\CPP\words.txt)" }; // adjust the file location
+   std::string infilename{ "words.txt" }; // adjust the file location
 
    WordsVector words_vector = task_1_Test_Drive(infilename);
    task_2_Test_Drive(words_vector);
@@ -180,7 +181,7 @@ int main()
    task_5_Test_Drive();
    task_6_test_driver();
    task_7_test_driver();
-   task_8_test_driver(15);
+//   task_8_test_driver(15);
 
    return 0;
 }
